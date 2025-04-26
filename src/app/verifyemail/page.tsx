@@ -39,9 +39,9 @@ export default function VerifyEmailPage() {
               <Link href="/login" className="text-blue-600 hover:underline">
                 Login
               </Link>
-            </div>
+            </div> 
           )}
-          {error && (
+          {!token && (
             <div className="text-red-500 text-center">
               <h2 className="text-2xl font-bold mb-6">Error</h2>
               <p>Invalid or expired token. Please try again.</p>
