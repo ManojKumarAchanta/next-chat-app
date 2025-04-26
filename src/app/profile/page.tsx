@@ -53,20 +53,21 @@ export default function Profile() {
       <div className="w-full flex flex-col gap-8 max-w-sm p-6 text-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center mb-6">Profile </h2>
         <div className="mb-4 flex-col gap-8 w-full">
-          <h2 className="p-1 rounded mb-6 text-center bg-green-500">
-            {loading ? "Loading..." : "User Details"}
-            <div className="text-center space-y-2">
-              <p>
-                <strong>Username:</strong> {data.username}
-              </p>
-              <p>
-                <strong>Email:</strong> {data.email}
-              </p>
-              <p>
-                <strong>Verified:</strong> {data.isVerified ? "Yes" : "No"}
-              </p>
-            </div>
+          <h2 className="p-1 rounded mb-6 text-center bg-green-500 m-auto">
+            Details
           </h2>
+          {loading ? "Loading..." : "User Details"}
+          <div className="text-center space-y-2">
+            <p>
+              <strong>Username:</strong> {data.username}
+            </p>
+            <p>
+              <strong>Email:</strong> {data.email}
+            </p>
+            <p>
+              <strong>Verified:</strong> {data.isVerified ? "Yes" : "No"}
+            </p>
+          </div>
         </div>
         <button
           onClick={logout}
