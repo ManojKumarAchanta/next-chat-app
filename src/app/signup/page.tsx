@@ -58,57 +58,51 @@ export default function Signup() {
   }, [formData]);
 
   return (
-    <div className="flex h-screen text-white items-center justify-center bg-black">
+    <div className="flex min-h-[calc(100vh-64px)] items-center justify-center">
       <Toaster />
-      <div className="w-full max-w-sm p-6 text-white rounded-lg shadow-md">
+      <div className="w-full max-w-sm p-6 rounded-lg border bg-card text-card-foreground shadow">
         <h2 className="text-2xl font-bold text-center mb-6">Signup</h2>
         <form className="space-y-4" onSubmit={onSignup}>
           <div>
-            <label
-              htmlFor="username"
-              className="block text-sm font-medium text-white"
-            >
+            <label htmlFor="username" className="block text-sm font-medium">
               Username
             </label>
             <input
               type="text"
               id="username"
               name="username"
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+              className="mt-1 block w-full p-2 border bg-background rounded-md focus:outline-none focus:ring focus:ring-blue-500"
               required
+              placeholder="username"
               value={formData.username}
               onChange={handleChange}
             />
           </div>
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-white"
-            >
+            <label htmlFor="email" className="block text-sm font-medium">
               Email
             </label>
             <input
               type="email"
               id="email"
               name="email"
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+              className="mt-1 block w-full p-2 border bg-background rounded-md focus:outline-none focus:ring focus:ring-blue-500"
               required
+              placeholder="Email"
               value={formData.email}
               onChange={handleChange}
             />
           </div>
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-white"
-            >
+            <label htmlFor="password" className="block text-sm font-medium">
               Password
             </label>
             <input
               type="password"
               id="password"
+              placeholder="password"
               name="password"
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+              className="mt-1 block w-full p-2 border bg-background rounded-md focus:outline-none focus:ring focus:ring-blue-500"
               required
               value={formData.password}
               onChange={handleChange}
@@ -117,13 +111,13 @@ export default function Signup() {
           <button
             type="submit"
             disabled={buttonDisabled}
-            className="cursor-pointer w-full font-semibold py-2 px-4 text-black rounded-md bg-gray-400 focus:outline-none focus:ring"
+            className="cursor-pointer bg-blue-500 w-full font-semibold py-2 px-4 text-white rounded-md hover:bg-primary/90 focus:outline-none focus:ring"
           >
             {loading ? (
               <>
                 Signing Up...
                 <svg
-                  className="animate-spin h-5 w-5 text-white inline-block ml-2"
+                  className="animate-spin h-5 w-5 inline-block ml-2"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                 >
@@ -147,9 +141,9 @@ export default function Signup() {
             )}
           </button>
         </form>
-        <p className="mt-4 text-center text-sm text-gray-200">
+        <p className="mt-4 text-center text-sm">
           Already have an account?{" "}
-          <Link href="/login" className="hover:underline text-blue-400">
+          <Link href="/login" className=" text-primary hover:underline">
             Login
           </Link>
         </p>

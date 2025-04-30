@@ -20,7 +20,7 @@ export default function Login() {
       console.log("Login success", data);
       if (data.success) {
         toast.success(data.message);
-        router.push("/profile"); // or wherever
+        router.replace("/profile");
       } else {
         toast.error(data.error || "Something went wrong");
       }
@@ -42,56 +42,55 @@ export default function Login() {
   };
 
   return (
-    <div className="flex h-screen text-white items-center justify-center bg-black">
-      <div className="w-full max-w-sm p-6 text-white rounded-lg shadow-md">
+    <div className="flex min-h-[calc(100vh-64px)] items-center justify-center">
+      <div className="w-full max-w-sm p-6 rounded-lg border bg-card text-card-foreground shadow">
         <Toaster />
         <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
         <form className="space-y-4" onSubmit={onLogin}>
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-white"
-            >
+            <label htmlFor="email" className="block text-sm font-medium">
               Email
             </label>
             <input
               type="email"
               id="email"
               name="email"
+              placeholder="Enter your email"
               onChange={onChange}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+              className="mt-1 block w-full p-2 border bg-background rounded-md focus:outline-none focus:ring focus:ring-blue-500"
               required
             />
           </div>
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-white"
-            >
+            <label htmlFor="password" className="block text-sm font-medium">
               Password
             </label>
             <input
               type="password"
               id="password"
+              placeholder="Enter your password"
               name="password"
               onChange={onChange}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+              className="mt-1 block w-full p-2 border bg-background rounded-md focus:outline-none focus:ring focus:ring-blue-500"
               required
             />
           </div>
           <button
             type="submit"
             disabled={isLoading}
-            className="cursor-pointer w-full font-semibold py-2 px-4 bg-white text-black rounded-md hover:bg-gray-400 focus:outline-none focus:ring "
+            className="cursor-pointer w-full font-semibold py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-primary/90 focus:outline-none focus:ring"
           >
             {isLoading ? "Logging in..." : "Login"}
           </button>
         </form>
         <p className="mt-4 text-center text-sm">
           Already have an account?{" "}
-          <Link href="/signup" className="text-blue-300 hover:underline">
+          <Link href="/signup" className="text-primary hover:underline">
             signup
           </Link>
+        </p>
+        <p>
+          <Link href="/forgot-password">Forgot Password</Link>
         </p>
       </div>
     </div>
