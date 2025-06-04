@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
