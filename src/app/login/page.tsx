@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import toast, { ToastBar, Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 export default function Login() {
   const router = useRouter();
@@ -44,7 +44,6 @@ export default function Login() {
   return (
     <div className="flex min-h-[calc(100vh-64px)] items-center justify-center">
       <div className="w-full max-w-sm p-6 rounded-lg border bg-card text-card-foreground shadow">
-        <Toaster />
         <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
         <form className="space-y-4" onSubmit={onLogin}>
           <div>

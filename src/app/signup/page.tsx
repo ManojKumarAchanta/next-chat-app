@@ -1,6 +1,6 @@
 "use client";
 
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -59,7 +59,6 @@ export default function Signup() {
 
   return (
     <div className="flex min-h-[calc(100vh-64px)] items-center justify-center">
-      <Toaster />
       <div className="w-full max-w-sm p-6 rounded-lg border bg-card text-card-foreground shadow">
         <h2 className="text-2xl font-bold text-center mb-6">Signup</h2>
         <form className="space-y-4" onSubmit={onSignup}>

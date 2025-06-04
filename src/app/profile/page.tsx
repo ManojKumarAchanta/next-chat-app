@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -49,7 +49,6 @@ export default function Profile() {
   }, []);
   return (
     <div className="flex h-screen  items-center justify-center ">
-      <Toaster />
       <div className="w-full flex flex-col gap-8 max-w-sm p-6  rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center mb-6">Profile </h2>
         <div className="mb-4 flex-col gap-8 w-full">

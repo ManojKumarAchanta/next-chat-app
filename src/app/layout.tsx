@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="font-comic antialiased">
-        <Toaster />
+        <Toaster/>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
