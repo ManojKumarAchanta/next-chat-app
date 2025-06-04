@@ -1,25 +1,28 @@
 import { NextRequest, NextResponse } from "next/server";
 import connect from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
-import bcrypt from "bcryptjs";
 import sendEmail from "@/helpers/mailer";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
   try {
     await connect();
     const reqBody = await req.json();
-    const { token } = reqBody; // Extract email and token from the request body
+    const { token } = reqBody;
+
     console.log("token: ", token);
+
     const user = await User.findOne({
       forgotPasswordToken: token,
-      forgotPasswordTokenExpiry: { $gt: Date.now() }, // Check if the token is not expired
+      forgotPasswordTokenExpiry: { $gt: Date.now() },
     });
+
     if (!user) {
       return NextResponse.json(
         { error: "Invalid or expired token" },
         { status: 400 }
       );
     }
+
     await sendEmail({
       email: user.email,
       emailType: "RESET",
@@ -30,12 +33,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
       { message: "Sent Reset password email successfully", success: true },
       { status: 200 }
     );
-    // If the user is found and verified, send a success response
   } catch (error) {
+    console.error("Error in forgot password:", error);
     return NextResponse.json(
-      { error: "Error Resetting password" },
+      { error: "Error resetting password" },
       { status: 500 }
     );
-    console.log("Error in forgot password:", error);
   }
 }
