@@ -1,8 +1,0 @@
-@import url("https://fonts.cdnfonts.com/css/comic-relief");
-@import "tailwindcss";
-@import "tw-animate-css";
-
-/* Add this manually */
-.font-comic {
-  font-family: "Comic Relief", sans-serif;
-}
